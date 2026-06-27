@@ -8,7 +8,8 @@ Userland code execution using the PS5 YouTube app.
 
 ### For Jailbroken PS5 (Webkit, Lua, BD-JB)
 - Fake or legit activated PS5
-- USA YouTube app version 1.03 PKG
+- For firmware 4.03 to 12.40 get YouTube app (PPSA01650) version 01.000.003 PKG
+- For firmware 12.60 and up get YouTube app (PPSA01650) version 01.000.030 PKG
 - FTP access to the console
 
 ### For Non-Jailbroken PS5
@@ -54,7 +55,7 @@ Y2JB requires a **fake-activated account** to run properly.
 
 ### Jailbroken PS5
 
-1. Install YouTube app version 1.03 PKG on your PS5
+1. Install YouTube app PKG on your PS5
 2. Use FTP to access the following path (create if not present):
    ```
    /user/download/PPSA01650
@@ -63,7 +64,9 @@ Y2JB requires a **fake-activated account** to run properly.
 
 ### Non-Jailbroken PS5
 
-1. Download the backup file from the releases page
+1. Download the backup file from the releases page  
+**Firmware 4.03 – 12.40** → `Y2JB_backup_1.6(4.03)`  
+**Firmware 12.60 and up** → `Y2JB_backup_1.6(12.20)`  
 2. Follow Sony's official guide to [restore backup data from USB](https://www.playstation.com/en-gb/support/hardware/back-up-ps5-data-USB/)
 
 **⚠️ WARNING:** Restoring backup data **WILL FACTORY RESET YOUR PS5**. All data on your console will be erased.
@@ -146,6 +149,7 @@ python payload_sender.py 192.168.1.100 9021 hen.bin
 * **[zecoxao](https://github.com/zecoxao), [idlesauce](https://github.com/idlesauce), and [TheFlow](https://github.com/theofficialflow)** - Helping troubleshoot dlsym
 * **[Dr.Yenyen](https://github.com/DrYenyen) and PS5 R&D community** - Testing Y2JB
 * **Rush** - Creating Y2JB backup file
+* **[ufm42](https://github.com/ufm42)** - [kexp](https://github.com/ufm42/kexp) used for PS5 post JB all-in-one shellcode
 
 ## Disclaimer
 
