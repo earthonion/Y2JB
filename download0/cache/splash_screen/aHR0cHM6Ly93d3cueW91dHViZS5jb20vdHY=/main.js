@@ -55,66 +55,8 @@ const fontSize = Math.floor(window.innerHeight / maxLines * 0.85);
 const leftPadding = Math.floor(window.innerWidth * 0.005);
 const topPadding = Math.floor(window.innerHeight * 0.005);
 
-async function log(msg) {
-    let message = String(msg);
-    if (!outputElement) {
-        outputElement = document.getElementById('output');
-        if (!outputElement) {
-            outputElement = document.createElement('div');
-            outputElement.id = 'output';
-            document.body.appendChild(outputElement);
-        }
-        outputElement.style.paddingLeft = leftPadding + 'px';
-        outputElement.style.paddingTop = topPadding + 'px'; 
-    }
-    
-    const lines = message.split('\n');
-    lines.forEach(line => {
-        let lineDiv = document.createElement('div');
-        lineDiv.textContent = line === '' ? '\u00A0' : line;
-        lineDiv.style.fontSize = fontSize + 'px';
-        
-        outputElement.appendChild(lineDiv);
-    });
-    
-    while (outputElement.children.length > maxLines) {
-        outputElement.removeChild(outputElement.children[0]);
-    }
-    
-    await new Promise(resolve => {
-        requestAnimationFrame(() => {
-            setTimeout(resolve, 1);
-        });
-    });
-        
-    if (NETWORK_LOGGING) {
-        try {
-            await fetch(LOG_SERVER, {
-                method: 'POST',
-                body: message,
-            });
-        } catch (e) { }
-    }
-
-    if (_log_socket_fd !== null && typeof syscall !== 'undefined') {
-        try {
-            if (!_log_socket_buf) {
-                _log_socket_buf = malloc(_LOG_SOCKET_MAXLEN);
-            }
-            const line = message + '\n';
-            const len = Math.min(line.length, _LOG_SOCKET_MAXLEN);
-            for (let i = 0; i < len; i++) {
-                write8(_log_socket_buf + BigInt(i), line.charCodeAt(i) & 0xFF);
-            }
-            let sent = 0;
-            while (sent < len) {
-                const n = syscall(SYSCALL.write, _log_socket_fd, _log_socket_buf + BigInt(sent), BigInt(len - sent));
-                const nv = Number(n);
-                if (nv <= 0) break;
-                sent += nv;
-            }
-        } catch (e) { }
-    }
+async function log(msg){
+    continue; //make slightly faster    
 }
 
 function toHex(num) {
