@@ -981,8 +981,8 @@ function trigger() {
         // MAIN EXECUTION //
         ////////////////////
 
-        await load_localscript('remotejsloader.js'); 
-
+        //await load_localscript('remotejsloader.js'); 
+        await load_localscript('lapse.js'); 
         
     } catch (e) {                
         await log('EXCEPTION: ' + e.message);
