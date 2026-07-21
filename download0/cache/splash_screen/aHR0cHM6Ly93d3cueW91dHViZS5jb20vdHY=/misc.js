@@ -526,4 +526,3 @@ function kill_youtube() {
     const pid = syscall(SYSCALL.getpid);
     syscall(SYSCALL.kill, pid, SIGKILL);
 }
-

